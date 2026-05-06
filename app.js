@@ -213,8 +213,14 @@ app.get('/members', (req, res) => {
         res.redirect('/');
         return;
     }
+
+    const images = ['cat1.jpg', 'cat2.jpg', 'cat3.jpg'];
+    const randomImage = images[Math.floor(Math.random() * images.length)];
+
     res.send(`
         <h1>Hello, ${req.session.username}</h1>
+        <img src="/img/${randomImage}" style="max-width:300px;">
+        </br>
         <a href="/logout">
             <button>Log Out</button>
         </a>
